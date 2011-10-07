@@ -12,13 +12,16 @@ What it does
 Lets say you have projects named ``foo`` and ``foo_bar``.
 Adding following code to foo/__init__.py will let you import ``foo_bar`` as ``foo.bar"``
 
+::
+    
     def setup():
         from importastic.exthook import ExtensionImporter
         importer = ExtensionImporter(['foo_%s'], __name__)
         importer.install()
-
+    
     setup()
     del setup
+
 
 The separator is customizable.
 
