@@ -1,8 +1,8 @@
 Importastic
 ###########
 
-Python Import systems for pluggable architecture. Largely Based on Flask's
-extension importansy system but still supporting real nested modules.
+Python import hook for pluggable architecture. Largely Based on Flask's
+extension import hook but enhanced to support real nested modules.
 
 Currently in development, only been tested on Linux.
 
