@@ -23,7 +23,7 @@ Adding following code to foo/__init__.py will let you import ``foo_bar`` as ``fo
     del setup
 
 
-The separator is customizable.
+The separator (i.e "_") is customizable.
 
 
 Trying It Out
