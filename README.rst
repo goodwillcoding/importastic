@@ -1,1 +1,0 @@
-importastic/README.rst
