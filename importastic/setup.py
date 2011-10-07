@@ -32,7 +32,7 @@ def main():
     Script entry point.
     """
     setup(name = 'importastic',
-          version = '0.1a1',
+          version = '0.1',
           description = """
 Python import system to allow pluggable packages to be imported as
 packages. Example: foo_bar to be imported as foo.bar
