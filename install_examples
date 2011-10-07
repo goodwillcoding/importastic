@@ -3,7 +3,6 @@
 CWD=$(pwd);
 
 # install importastic in a development mode
-cd "${CWD}/importastic";
 python ./setup.py develop;
 
 # install all examples in a development mode
