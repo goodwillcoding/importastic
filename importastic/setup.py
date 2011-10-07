@@ -19,8 +19,8 @@ def get_long_desc():
     Concat README.rst and CHANGES.txt into one string.
     """
 
-    here = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-    readme_file = open(os.path.join(here, 'README.rst'))
+    here = os.path.abspath(os.path.dirname(__file__))
+    readme_file = open(os.path.join(here, 'README'))
     README = readme_file.read()
     changes_file = open(os.path.join(here, 'CHANGES.rst'))
     CHANGES = changes_file.read()
