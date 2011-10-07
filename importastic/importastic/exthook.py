@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 """
-
     Redirect imports for extensions.  This module basically makes it possible
     for us to transition from phraoh.foo to pharaoh_foo without having to
     force all extensions to upgrade at the same time.
@@ -11,22 +10,19 @@
     When a user does ``from pharaoh.ext.foo import bar`` it will attempt to
     import ``from pharaoh_foo import bar``.
 
-    We're switching from namespace packages because it was just too painful for
-    everybody involved.
-
-    Heavily borrowed from Flask Project:
+    Orignal code from Flask Project:
 
     https://github.com/mitsuhiko/flask/blob/master/flask/exthook.py
     https://github.com/mitsuhiko/flask/blob/master/flask/ext/__init__.py
 
     :copyright: (c) 2011 by Armin Ronacher.
     :license: BSD, see LICENSE for more details.
-
 """
-import sys
-import os
+
 import imp
-from pprint import pprint
+import os
+import sys
+
 
 class ExtensionImporter(object):
     """This importer redirects imports from this submodule to other locations.
@@ -54,13 +50,10 @@ class ExtensionImporter(object):
 
     def find_module(self, fullname, path=None):
         if fullname.startswith(self.prefix):
-            print "find_module :: fullname:", fullname, "self.prefix:", self.prefix, "FOUND!"
             return self
 
     def load_module(self, fullname):
-        print "load_module :: fullname:", fullname
         if fullname in sys.modules:
-            print "load_module :: %s LOCATED in sys.modules" % fullname
             return sys.modules[fullname]
 
         # #####################################################
@@ -78,19 +71,17 @@ class ExtensionImporter(object):
                 found_info = imp.find_module(modname, parent_path)
             except ImportError:
                 # if not found, then we its not a real module
-                print "could not find a real module"
+                pass
             else:
                 # if found the module then try to load it and return it
                 try:
                     module = imp.load_module(fullname, *found_info)
-                    print "REAL MODULE:", module
                     # for n in sys.modules:
                     #     if n.startswith('pharaoh_foo.') \
                     #        or n.startswith('pharaoh.foo.'):
                     #         print "    ", n, ":", sys.modules[n]
                     return module
                 except ImportError:
-                    print "could not load a real module"
                     exc_type, exc_value, tb = sys.exc_info()
                     sys.modules.pop(fullname, None)
                     raise exc_type, exc_value, tb
@@ -98,7 +89,6 @@ class ExtensionImporter(object):
         modname = fullname.split('.', self.prefix_cutoff)[self.prefix_cutoff]
         for path in self.module_choices:
             realname = path % modname
-            print "load_module :: realname:", realname
             try:
                 __import__(realname)
             except ImportError:
@@ -122,7 +112,6 @@ class ExtensionImporter(object):
                     raise exc_type, exc_value, tb.tb_next
                 continue
             module = sys.modules[fullname] = sys.modules[realname]
-            print "FAKE MODULE::", module
             if '.' not in modname:
                 setattr(sys.modules[self.wrapper_module], modname, module)
             return module
