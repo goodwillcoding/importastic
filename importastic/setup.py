@@ -47,7 +47,7 @@ packages. Example: foo_bar to be imported as foo.bar
               ],
           keywords = 'import system pluggable',
           author = 'michr',
-          author_email = '',
+          author_email = 'example@example.com',
           url = 'https://github.com/michr/importastic',
           license='BSD',
           packages=find_packages(exclude = ['ez_setup', 'examples', 'tests']),
