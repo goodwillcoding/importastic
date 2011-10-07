@@ -1,0 +1,31 @@
+# backup and temp files
+.#*
+*~
+*#
+*.stamp
+*.orig
+
+# python cruft
+*.pyc
+*.pyo
+*.egg
+*.egg-info
+
+# images cruft
+.DS_Store
+Data.fs*
+
+# various IDEs cruft
+.project
+.pydevproject
+.settings
+
+# virtualenv  cruft
+_env*
+
+# doc builds cruft
+docs/build
+docs/modules
+docs/templates
+
+
