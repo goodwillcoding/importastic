@@ -34,15 +34,21 @@ The author used it re-organize a large code base without running too many sed
 statements. Flask project uses something similar to backwardly import plugins.
 
 
-Trying It Out
-=============
-
+Testing it out
+==============
 
 1. Create a virtualenv and activate it
 2. git clone https://github.com/michr/importastic.git
+3. cd importastic
 3. run ``./install_examples``
 4. ``cd examples``
 5. ``python ./tests.py``
+
+
+Installing from PyPI
+========================
+
+``pip install importastic``
 
 
 Disclaimer
@@ -55,3 +61,4 @@ License
 =======
 
 BSD.
+
