@@ -26,6 +26,13 @@ Adding following code to foo/__init__.py will let you import ``foo_bar`` as ``fo
 The separator (i.e "_") is customizable.
 
 
+Why would anyone use it
+=======================
+
+The author used it re-organize a large code base without running too many sed statements.
+Flask project uses something similar to backwardly import plugins
+
+
 Trying It Out
 =============
 
