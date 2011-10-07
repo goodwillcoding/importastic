@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+CWD=$(pwd);
+
+# install importastic in a development mode
+cd "${CWD}/importastic";
+python ./setup.py develop;
+
+# install all examples in a development mode
+
+cd "${CWD}/examples/pharaoh";
+python ./setup.py develop
+
+cd "${CWD}/examples/pharaoh_foo";
+python ./setup.py develop
+
+cd "${CWD}/examples/pharaoh_foo_bar";
+python ./setup.py develop
+
