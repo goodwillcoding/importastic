@@ -20,7 +20,7 @@ def get_long_desc():
     """
 
     here = os.path.abspath(os.path.dirname(__file__))
-    readme_file = open(os.path.join(here, 'README'))
+    readme_file = open(os.path.join(here, 'README.rst'))
     README = readme_file.read()
     changes_file = open(os.path.join(here, 'CHANGES.rst'))
     CHANGES = changes_file.read()
